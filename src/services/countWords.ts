@@ -2,7 +2,7 @@
 function countWords(text:string | undefined){
     const words = text?.trim()
     .toLocaleLowerCase()
-    .split(/["\s.,?=&@#*-+!-'()<>]/gmi);
+    .split(/["\s.,?=&@#*-+!-'():;<>]/gmi);
 
     const filtredWords =  words?.filter(words => words !== "");
 

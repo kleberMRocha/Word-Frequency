@@ -49,12 +49,14 @@ const Home:React.FC = () => {
 
                 <Table>
                     <thead>
-                        <th>
-                            WORD
-                        </th>
-                        <th>
-                            FREQUENCY
-                        </th>
+                        <tr>
+                            <th>
+                                WORD
+                            </th>
+                            <th>
+                                FREQUENCY
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
                         {!!sortedWords && 
