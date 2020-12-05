@@ -25,7 +25,10 @@ function countWords(text:string | undefined){
 
     });
 
-   return (result);
+    const sortedWords = Object.entries(result)
+    .sort((a:any,b:any) => (a[1] < b[1])? 1 : -1);
+
+   return (sortedWords);
     
 
 }

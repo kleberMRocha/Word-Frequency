@@ -7,12 +7,9 @@ const Home:React.FC = () => {
 
     const [isFocus, setIsfocus] = useState(false);
     const [errorMessage, setError] = useState<string>('');
-    const [result, setResult] = useState<object>({});
+    const [result, setResult] = useState<[string, number][]>([]);
     const [textAraContent,setTextAreaContent] = useState<string | undefined>('');
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-
-   const sortedWords = Object.entries(result)
-   .sort((a:any,b:any) => (a[1] < b[1])? 1 : -1);
 
     const handleGetResult = useCallback(() => {
         if(!textAraContent?.length){
@@ -43,8 +40,8 @@ const Home:React.FC = () => {
                 {errorMessage.length === 0 && errorMessage }
                 <p> {!!errorMessage.length && errorMessage} </p>
                 <h3>  
-                    {!!sortedWords.length 
-                    && `Total Words: ${sortedWords.length}`}
+                    {!!result.length 
+                    && `Total Words: ${result.length}`}
                 </h3>
 
                 <Table>
@@ -59,8 +56,8 @@ const Home:React.FC = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {!!sortedWords && 
-                        sortedWords.map((itemList) => 
+                        {!!result && 
+                        result.map((itemList) => 
                         <tr key={itemList[0]}> 
                             <td>{`${itemList[0]}`}</td>
                             <td>{`${itemList[1]}`}</td>
